@@ -8,6 +8,7 @@ import {
   PiCloudSunDuotone,
   PiSunDuotone,
 } from 'react-icons/pi'
+// import { IconContext } from 'react-icons'
 
 class ForecastType {
   constructor(text, component) {
@@ -61,18 +62,20 @@ const NextDay = (props) => {
   let [UVIndexMaxUnit, setUVIndexMaxUnit] = useState(props.UVIndexMaxUnit)
 
   return (
-    <section class="collapse">
+    <section className="collapse">
       <input type="radio" name="forecast"/>
       <div className="flex justify-between items-center gap-4 collapse-title text-xl px-0">
         <span className="flex items-center gap-5">
-          <span className="text-left text-md text-gray w-8 me-8">{day.slice(0, 3)}</span>
-          <span className="text-5xl inline">{ForecastTypeComponents[weathercode].component}</span>
-          <span className="text-gray text-md w-100px inline">{ForecastTypeComponents[weathercode].text}</span>
+          <span className="text-left text-md text-neutral200 w-8 me-8">{day.slice(0, 3)}</span>
+          {/* <IconContext.Provider value={{ className: "fill-black" }}> */}
+            <span className="text-5xl inline">{ForecastTypeComponents[weathercode].component}</span>
+          {/* </IconContext.Provider> */}
+          <span className="text-neutral300 text-md w-100px inline">{ForecastTypeComponents[weathercode].text}</span>
         </span>
         <span className="text-md font-bold super">
-          <sup>{highTemp >= 0 ? "+" : "-"}{highTemp.toFixed(1)}{degreeUnit}</sup>
-          <span className="m-1 text-gray">/</span>
-          <sub className="text-gray">{lowTemp >= 0 ? "+" : "-"}{lowTemp.toFixed(1)}{degreeUnit}</sub>
+          <sup className="text-neutral200">{highTemp >= 0 ? "+" : "-"}{highTemp.toFixed(1)}{degreeUnit}</sup>
+          <span className="m-1 text-neutral200">/</span>
+          <sub className="text-neutral200">{lowTemp >= 0 ? "+" : "-"}{lowTemp.toFixed(1)}{degreeUnit}</sub>
         </span>
       </div>
       <section className="collapse-content text-center">

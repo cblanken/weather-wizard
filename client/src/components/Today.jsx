@@ -11,7 +11,7 @@ const Today = (props) => {
   let [weatherStatus, setWeatherStatus] = useState(props.weatherStatus)
   let [image, setImage] = useState("")
   return (
-    <div className="font-bold text-light card w-96 bg-base-100 shadow-xl">
+    <div className="font-bold text-neutral300 card w-96 bg-base-100 shadow-xl">
       <div className="card backdrop-opacity-50 bg-rainy bg-no-repeat">
         <div className="card-body" style={{ backgroundImage:`url(${image})`}}>
           <h2 className="card-title">{day}</h2>

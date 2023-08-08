@@ -6,17 +6,22 @@ module.exports = {
   ],
   theme: {
     colors: {
-      transparent: 'transparent',
-      current: 'currentColor',
-      'pink-light': '#E6A7AF',
-      'pink-medium': '#E96D77',
-      'pink-dark': '#8F4465',
-      'purple-light': '#E3E0E7',
-      'purple-medium': '#998BA8',
-      'purple-dark': '#351A53',
-      'dark': '#1E142A',
-      'gray': '#B3AEB9',
-      'light': '#F5F3F6',
+      // Primary styling palette
+      'neutral100': '#2C3436',
+      'neutral200': '#B3AEB9',
+      'neutral300': '#F5F3F6',
+      'primary100': '#1E142A',
+      'primary200': '#351A53',
+      'primary300': '#998BA8',
+      'primary400': '#E3E0E7',
+      'accent100': '#8F4465',
+      'accent200': '#E96D77',
+      'accent300': '#E6A7AF',
+      // Semantic state colors
+      'good': '#91BE9E',
+      'warning': '#E89D63',
+      'error': '#D25041',
+      'info': '#748B97',
     },
     fontFamily: {
       sans: ["Josefin Sans", "Arial", "sans"],

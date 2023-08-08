@@ -24,9 +24,9 @@ export default function LoginPage() {
   }
 
   return (
-    <main className="flex justify-center bg-dark">
+    <main className="bg-neutral100 flex justify-center">
       {/* Form container */}
-      <div className="bg-dark px-4 md:p-6 md:w-8/12 lg:w-6/12 xl:w-5/12">
+      <div className="px-4 md:p-6 md:w-8/12 lg:w-6/12 xl:w-5/12">
         {/* <!--Logo--> */}
         <div className="text-center">
           <h4 className="mb-12 mt-1 pb-1 text-xl font-semibold">

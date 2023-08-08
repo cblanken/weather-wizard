@@ -6,7 +6,7 @@ import Footer from '../components/Footer'
 function Home() {
   return (
     <>
-      <div className="App bg-dark flex flex-col items-center">
+      <div className="App bg-neutral100 flex flex-col items-center">
         <Header />
         <Today />
         <NextDays />
