@@ -1,7 +1,7 @@
-const passport = require('passport')
-const validator = require('validator')
-const User = require('../models/User')
-require('dotenv').config({path: './config/.env'})
+const passport = require("passport")
+const validator = require("validator")
+const User = require("../models/User")
+require("dotenv").config({path: "./config/.env"})
 
 const REDIRECT_ROUTES = {
   login: `${process.env.FRONTEND_URI}/login`,
@@ -13,8 +13,8 @@ const REDIRECT_ROUTES = {
 exports.postLogin = (req, res, next) => {
   console.log("POST LOGIN")
   const validationErrors = [] // Placeholder for inputting error messages
-  if (!validator.isEmail(req.body.email)) validationErrors.push({ msg: 'Please enter a valid email address.' })
-  if (validator.isEmpty(req.body.password)) validationErrors.push({ msg: 'Password cannot be blank.' })
+  if (!validator.isEmail(req.body.email)) validationErrors.push({ msg: "Please enter a valid email address." })
+  if (validator.isEmpty(req.body.password)) validationErrors.push({ msg: "Password cannot be blank." })
 
   // If there is an error, redirect back to the login page
   if (validationErrors.length) {
@@ -26,7 +26,7 @@ exports.postLogin = (req, res, next) => {
 
   req.body.email = validator.normalizeEmail(req.body.email, { gmail_remove_dots: false })
 
-  passport.authenticate('local', (err, user, info) => {
+  passport.authenticate("local", (err, user) => {
     if (err) { return next(err) }
     if (!user) {
       return res.json({
@@ -43,7 +43,7 @@ exports.postLogin = (req, res, next) => {
 }
 
 // Logs out the user
-exports.logout = (req, res) => {
+exports.logout = (req, res, next) => {
   req.logout(function (err) {
     if (err) {
       return next(err);
@@ -63,11 +63,11 @@ exports.postSignup = async (req, res, next) => {
   try {
     const validationErrors = [];
     if (!validator.isEmail(req.body.email))
-      validationErrors.push({ msg: 'Please enter a valid email address.' });
+      validationErrors.push({ msg: "Please enter a valid email address." });
     if (!validator.isLength(req.body.password, { min: 8 }))
-      validationErrors.push({ msg: 'Password must be at least 8 characters long' });
+      validationErrors.push({ msg: "Password must be at least 8 characters long" });
     if (req.body.password !== req.body.confirmPassword)
-      validationErrors.push({ msg: 'Passwords do not match' });
+      validationErrors.push({ msg: "Passwords do not match" });
 
     if (validationErrors.length) {
       return res.json({ redirect: REDIRECT_ROUTES.signup }); 
@@ -84,8 +84,8 @@ exports.postSignup = async (req, res, next) => {
     }).exec();
 
     if (existingUser) {
-      req.flash('errors', {
-        msg: 'Account with that email address or username already exists.',
+      req.flash("errors", {
+        msg: "Account with that email address or username already exists.",
       });
       return res.json({ redirect: REDIRECT_ROUTES.signup });
     }

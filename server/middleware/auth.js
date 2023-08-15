@@ -1,6 +1,6 @@
 const REDIRECT_ROUTES = {
-  home: '/',
-  main: '/todos'
+  home: "/",
+  main: "/todos"
 };
 
 // TODO remove redirects (return errors message instead for frontend consumption)
