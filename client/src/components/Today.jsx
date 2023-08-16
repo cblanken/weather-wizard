@@ -1,9 +1,6 @@
 import React, {useState} from 'react'
-import data from "../data/today_data.json"
-
 
 const Today = (props) => {
-  // let [backgroundUrl, setBackgroundUrl] = useState(props.backgroundUrl)
   let [currentTemp, setCurrentTemp] = useState(props.currentTemp);
   let [lowTemp, setLowTemp] = useState(props.lowTemp);
   let [highTemp, setHighTemp] = useState(props.highTemp);
